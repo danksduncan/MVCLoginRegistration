@@ -61,5 +61,17 @@ namespace MVCLoginRegistration.Controllers
             }
             return View();
         }
+
+        public ActionResult LoggedIn()
+        {
+            if (Session["UserId"] != null)
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Login");
+            }
+        }
     }
 }
