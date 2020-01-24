@@ -12,7 +12,10 @@ namespace MVCLoginRegistration.Controllers
         // GET: Account
         public ActionResult Index()
         {
-            return View();
+            using (UserDbContext db = new UserDbContext())
+            {
+                return View(db.userAccount.ToList());
+            }
         }
 
         public ActionResult Register()
